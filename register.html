@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Plant Buddies</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/svg+xml">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Plant Buddies</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="community.html">Community</a>
+                <a href="guide.html">Maintenance Guide</a>
+                <a href="register.html" class="register-btn active">Register</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="register-container">
+                <div class="register-form">
+                    <h2>Join Plant Buddies</h2>
+                    <p>Create your account to access the full community features and plant care resources.</p>
+                    
+                    <form @submit.prevent="register">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" v-model="form.username" required placeholder="Choose a username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" v-model="form.email" required placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" v-model="form.password" required placeholder="Create a password">
+                            <small>Password must be at least 8 characters</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" v-model="form.confirmPassword" required placeholder="Confirm your password">
+                        </div>
+                        
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" v-model="form.acceptTerms" required>
+                            <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                        </div>
+                        
+                        <button type="submit" class="primary-btn register-submit">Create Account</button>
+                    </form>
+                    
+                    <div class="login-link">
+                        <p>Already have an account? <a href="login.html">Log in</a></p>
+                    </div>
+                </div>
+                
+                <div class="register-image">
+                    <img src="https://picsum.photos/id/10/600/400" alt="Join Plant Buddies" class="register-illustration">
+                    <div class="benefits-list">
+                        <h3>Benefits of Joining:</h3>
+                        <ul>
+                            <li>Access to exclusive plant care guides</li>
+                            <li>Participate in community discussions</li>
+                            <li>Share your plant growth journey</li>
+                            <li>Get personalized advice from experts</li>
+                            <li>Track your plant collection</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Plant Buddies. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    form: {
+                        username: '',
+                        email: '',
+                        password: '',
+                        confirmPassword: '',
+                        acceptTerms: false
+                    },
+                    error: ''
+                }
+            },
+            methods: {
+                register() {
+                    if (this.form.password !== this.form.confirmPassword) {
+                        this.error = 'Passwords do not match'
+                        return
+                    }
+                    
+                    // In a real application, this would send data to a server
+                    console.log('Registration data:', this.form)
+                    alert('Registration successful! In a full implementation, you would be redirected to login.')
+                    window.location.href = 'index.html'
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

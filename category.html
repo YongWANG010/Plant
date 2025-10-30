@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category - Plant Buddies</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/svg+xml">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Plant Buddies</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="community.html" class="active">Community</a>
+                <a href="guide.html">Maintenance Guide</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="category-header">
+                <h2>{{ currentCategoryName }}</h2>
+                <p>{{ categoryDescription }}</p>
+                <a href="new-discussion.html" class="primary-btn">Start New Discussion</a>
+            </section>
+            
+            <section class="category-filters">
+                <div class="sort-options">
+                    <label for="sort">Sort by:</label>
+                    <select id="sort" v-model="sortBy">
+                        <option value="newest">Newest First</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="comments">Most Comments</option>
+                    </select>
+                </div>
+                
+                <div class="view-options">
+                    <button class="view-btn active" @click="viewMode = 'list'">📋 List</button>
+                    <button class="view-btn" @click="viewMode = 'grid'">🧩 Grid</button>
+                </div>
+            </section>
+            
+            <section class="category-posts" :class="viewMode">
+                <div class="category-post" v-for="post in filteredPosts" :key="post.id">
+                    <div class="post-header">
+                        <h3><a href="post-detail.html">{{ post.title }}</a></h3>
+                        <span class="post-date">{{ post.date }}</span>
+                    </div>
+                    <p class="post-content">{{ post.content }}</p>
+                    <div class="post-footer">
+                        <div class="post-meta">
+                            <span class="post-author">By: {{ post.author }}</span>
+                            <span class="post-category">{{ post.category }}</span>
+                        </div>
+                        <div class="post-stats">
+                            <span class="post-likes">👍 {{ post.likes }}</span>
+                            <span class="post-comments">💬 {{ post.comments }}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="pagination">
+                <button class="page-btn" :disabled="currentPage === 1">Previous</button>
+                <button v-for="page in totalPages" :key="page" 
+                        class="page-btn" :class="{ active: currentPage === page }"
+                        @click="currentPage = page">{{ page }}</button>
+                <button class="page-btn" :disabled="currentPage === totalPages">Next</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Plant Buddies. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    // Get category from URL or default to plant-care
+                    categorySlug: new URLSearchParams(window.location.search).get('category') || 'plant-care',
+                    sortBy: 'newest',
+                    viewMode: 'list',
+                    currentPage: 1,
+                    postsPerPage: 5,
+                    categories: {
+                        'plant-care': {
+                            name: 'Plant Care',
+                            description: 'Discussions about caring for different types of plants.'
+                        },
+                        'growth-journals': {
+                            name: 'Growth Journals',
+                            description: 'Track and share your plants\' growth progress over time.'
+                        },
+                        'q-a': {
+                            name: 'Q & A',
+                            description: 'Ask questions and get answers about plant care.'
+                        },
+                        'tips-tricks': {
+                            name: 'Tips & Tricks',
+                            description: 'Share helpful tips and tricks for successful plant parenting.'
+                        }
+                    },
+                    allPosts: [
+                        {
+                            id: 1,
+                            title: "How to Water Orchids Correctly",
+                            content: "Many people struggle with watering orchids. Here's my approach that has kept my orchids blooming for years...",
+                            author: "OrchidExpert",
+                            category: "Plant Care",
+                            date: "2 hours ago",
+                            likes: 8,
+                            comments: 3
+                        },
+                        {
+                            id: 2,
+                            title: "My Pothos is Taking Over!",
+                            content: "My golden pothos has grown over 6 feet in just 6 months. Here's how I've been caring for it...",
+                            author: "VineLover",
+                            category: "Growth Journals",
+                            date: "Yesterday",
+                            likes: 15,
+                            comments: 7
+                        },
+                        {
+                            id: 3,
+                            title: "Help! My Snake Plant has Brown Tips",
+                            content: "I noticed brown tips on my snake plant. What could be causing this and how do I fix it?",
+                            author: "ConcernedPlantParent",
+                            category: "Q & A",
+                            date: "2 days ago",
+                            likes: 4,
+                            comments: 6
+                        },
+                        {
+                            id: 4,
+                            title: "DIY Self-Watering Planter Tutorial",
+                            content: "I made these self-watering planters from recycled materials. They've been a game-changer for my busy schedule!",
+                            author: "DIYEnthusiast",
+                            category: "Tips & Tricks",
+                            date: "3 days ago",
+                            likes: 22,
+                            comments: 11
+                        },
+                        {
+                            id: 5,
+                            title: "Best Fertilizers for Indoor Plants",
+                            content: "After trying many fertilizers, here are my top picks for keeping indoor plants healthy and thriving.",
+                            author: "PlantNutritionist",
+                            category: "Plant Care",
+                            date: "4 days ago",
+                            likes: 18,
+                            comments: 9
+                        }
+                    ]
+                }
+            },
+            computed: {
+                currentCategoryName() {
+                    return this.categories[this.categorySlug]?.name || 'All Posts';
+                },
+                categoryDescription() {
+                    return this.categories[this.categorySlug]?.description || 'All discussions from our plant community.';
+                },
+                filteredPosts() {
+                    let posts = [...this.allPosts];
+                    
+                    // Filter by category if not 'all'
+                    if (this.categorySlug !== 'all') {
+                        const categoryName = this.currentCategoryName;
+                        posts = posts.filter(post => post.category === categoryName);
+                    }
+                    
+                    // Sort posts
+                    switch (this.sortBy) {
+                        case 'newest':
+                            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                            break;
+                        case 'popular':
+                            posts.sort((a, b) => b.likes - a.likes);
+                            break;
+                        case 'comments':
+                            posts.sort((a, b) => b.comments - a.comments);
+                            break;
+                    }
+                    
+                    // Pagination
+                    const startIndex = (this.currentPage - 1) * this.postsPerPage;
+                    return posts.slice(startIndex, startIndex + this.postsPerPage);
+                },
+                totalPages() {
+                    let count = this.allPosts.length;
+                    if (this.categorySlug !== 'all') {
+                        const categoryName = this.currentCategoryName;
+                        count = this.allPosts.filter(post => post.category === categoryName).length;
+                    }
+                    return Math.ceil(count / this.postsPerPage);
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

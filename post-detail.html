@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail - Plant Buddies</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/svg+xml">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Plant Buddies</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="community.html" class="active">Community</a>
+                <a href="guide.html">Maintenance Guide</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="post-detail-container">
+                <div class="post-detail-header">
+                    <h2>{{ post.title }}</h2>
+                    <div class="post-meta">
+                        <span class="author">By: {{ post.author }}</span>
+                        <span class="date">Posted 2 days ago</span>
+                    </div>
+                </div>
+                
+                <div class="post-detail-content">
+                    <img src="https://picsum.photos/id/12/800/600" alt="Monstera Plant" class="post-image">
+                    <p>{{ post.fullContent }}</p>
+                    
+                    <div class="post-tags">
+                        <span class="tag">#PlantCare</span>
+                        <span class="tag">#IndoorPlants</span>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn like-btn">👍 {{ post.likes }} Likes</button>
+                        <button class="action-btn comment-btn">💬 {{ post.comments.length }} Comments</button>
+                        <button class="action-btn share-btn">Share</button>
+                    </div>
+                </div>
+                
+                <div class="comments-section">
+                    <h3>Comments</h3>
+                    
+                    <div class="comment-form">
+                        <textarea placeholder="Add your comment..."></textarea>
+                        <button class="primary-btn">Post Comment</button>
+                    </div>
+                    
+                    <div class="comments-list">
+                        <div class="comment" v-for="comment in post.comments" :key="comment.id">
+                            <div class="comment-header">
+                                <span class="comment-author">{{ comment.author }}</span>
+                                <span class="comment-date">{{ comment.date }}</span>
+                            </div>
+                            <p class="comment-content">{{ comment.content }}</p>
+                            <button class="reply-btn">Reply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="related-posts">
+                    <h3>Related Posts</h3>
+                    <div class="related-grid">
+                        <div class="related-post" v-for="related in relatedPosts" :key="related.id">
+                            <h4>{{ related.title }}</h4>
+                            <p>{{ related.excerpt }}</p>
+                            <a href="post-detail.html" class="read-more">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Plant Buddies. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    post: {
+                        id: 1,
+                        title: "My Monstera's Growth Journey",
+                        author: "PlantLover123",
+                        fullContent: "I've had my monstera for about 6 months now, and it's been quite a journey. When I first brought it home, it was just a small plant with a few leaves. Now, it's thriving and has produced several new leaves with beautiful fenestrations.\n\nOne of the most important lessons I learned is about watering. Initially, I was watering it too frequently, which led to some yellowing leaves. I adjusted to a schedule of watering only when the top 2 inches of soil are dry.\n\nFor light, I keep it near an east-facing window where it gets bright, indirect sunlight for a few hours each morning. This has been perfect for encouraging growth.\n\nI also started using a balanced liquid fertilizer during the growing season, which has made a noticeable difference in the size and health of new leaves.",
+                        likes: 12,
+                        comments: [
+                            {
+                                id: 1,
+                                author: "PlantEnthusiast",
+                                content: "Your monstera looks amazing! I've been struggling with mine. What fertilizer do you use?",
+                                date: "1 day ago"
+                            },
+                            {
+                                id: 2,
+                                author: "PlantLover123",
+                                content: "Thank you! I use a 20-20-20 liquid fertilizer diluted to half strength every 2-4 weeks during spring and summer.",
+                                date: "1 day ago"
+                            },
+                            {
+                                id: 3,
+                                author: "NewPlantParent",
+                                content: "Great tips! I just got my first monstera and will definitely follow your advice.",
+                                date: "12 hours ago"
+                            }
+                        ]
+                    },
+                    relatedPosts: [
+                        {
+                            id: 101,
+                            title: "10 Tips for Growing Healthy Monsteras",
+                            excerpt: "Learn how to care for your monstera with these expert tips..."
+                        },
+                        {
+                            id: 102,
+                            title: "Common Monstera Problems and Solutions",
+                            excerpt: "Troubleshooting guide for yellow leaves, brown spots, and more..."
+                        },
+                        {
+                            id: 103,
+                            title: "How to Propagate Monsteras Successfully",
+                            excerpt: "Step-by-step instructions for propagating your monstera plant..."
+                        }
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

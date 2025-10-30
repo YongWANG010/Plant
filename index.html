@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Buddies</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/svg+xml">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Plant Buddies</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="community.html">Community</a>
+                <a href="guide.html">Maintenance Guide</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="banner-section">
+                <h1>Plant Buddies</h1>
+                <p>Discover the world of plants and connect with fellow enthusiasts</p>
+            </section>
+            
+            <section class="plant-categories-section">
+                <h2>Plant Categories</h2>
+                <p>Explore our collection of plant guides by category</p>
+                
+                <div class="plant-categories">
+                    <div class="category" v-for="category in plantCategories" :key="category.id">
+                        <img :src="category.image" :alt="category.name" class="category-image">
+                        <div class="category-content">
+                            <h3>{{ category.name }}</h3>
+                            <p>{{ category.description }}</p>
+                            <a href="guide.html" class="view-btn">View Guide</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="guide" class="guide-section">
+                <h2>Plant Care Guides</h2>
+                <p>Explore our collection of plant care guides for beginners and experts.</p>
+                
+                <div class="plant-categories">
+                    <div class="category" v-for="category in plantCategories" :key="category.id">
+                        <img :src="category.image" :alt="category.name" class="category-image">
+                        <h3>{{ category.name }}</h3>
+                        <p>{{ category.description }}</p>
+                        <a href="guide.html" class="view-btn">View Guide</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="community" class="community-section">
+                <h2>Join Our Community</h2>
+                <p>Connect with fellow plant lovers, share your experiences, and learn together.</p>
+                
+                <div class="community-posts">
+                    <div class="post" v-for="post in communityPosts" :key="post.id">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.content }}</p>
+                        <p class="author">By: {{ post.author }}</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Plant Buddies. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="./app.js"></script>
+</body>
+</html>

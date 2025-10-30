@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="herbPotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#607D8B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#455A64;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="herbLeafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1B5E20;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- 花盆 -->
+  <circle cx="100" cy="170" r="40" fill="url(#herbPotGradient)" />
+  <path d="M60 170 L140 170 L140 190 L60 190 Z" fill="url(#herbPotGradient)" />
+  <!-- 香草茎和叶子 -->
+  <path d="M80 170 L90 110" stroke="#388E3C" stroke-width="2" fill="none" />
+  <path d="M100 170 L100 100" stroke="#388E3C" stroke-width="2" fill="none" />
+  <path d="M120 170 L110 115" stroke="#388E3C" stroke-width="2" fill="none" />
+  <path d="M75 170 L85 120" stroke="#388E3C" stroke-width="2" fill="none" />
+  <path d="M125 170 L115 125" stroke="#388E3C" stroke-width="2" fill="none" />
+  
+  <!-- 叶子组 -->
+  <g>
+    <ellipse cx="85" cy="100" rx="15" ry="6" fill="url(#herbLeafGradient)" transform="rotate(-30 85 100)" />
+    <ellipse cx="95" cy="90" rx="12" ry="5" fill="url(#herbLeafGradient)" transform="rotate(30 95 90)" />
+  </g>
+  <g>
+    <ellipse cx="100" cy="90" rx="15" ry="6" fill="url(#herbLeafGradient)" transform="rotate(-20 100 90)" />
+    <ellipse cx="105" cy="80" rx="12" ry="5" fill="url(#herbLeafGradient)" transform="rotate(40 105 80)" />
+  </g>
+  <g>
+    <ellipse cx="115" cy="105" rx="15" ry="6" fill="url(#herbLeafGradient)" transform="rotate(30 115 105)" />
+    <ellipse cx="105" cy="95" rx="12" ry="5" fill="url(#herbLeafGradient)" transform="rotate(-30 105 95)" />
+  </g>
+  <g>
+    <ellipse cx="80" cy="110" rx="12" ry="5" fill="url(#herbLeafGradient)" transform="rotate(-40 80 110)" />
+  </g>
+  <g>
+    <ellipse cx="120" cy="115" rx="12" ry="5" fill="url(#herbLeafGradient)" transform="rotate(40 120 115)" />
+  </g>
+  <!-- 小花 -->
+  <circle cx="90" cy="95" r="3" fill="#81C784" />
+  <circle cx="100" cy="85" r="3" fill="#81C784" />
+  <circle cx="110" cy="100" r="3" fill="#81C784" />
+</svg>

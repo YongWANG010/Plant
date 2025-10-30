@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Guide - Plant Buddies</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/svg+xml">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Plant Buddies</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="community.html">Community</a>
+                <a href="guide.html" class="active">Maintenance Guide</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="guide-header">
+                <h2>Plant Care Guides</h2>
+                <p>Comprehensive guides to help you care for your plants and keep them thriving.</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for a specific plant or issue...">
+                    <button class="search-btn">Search</button>
+                </div>
+            </section>
+            
+            <section class="plant-categories-section">
+                <h3>Plant Categories</h3>
+                <div class="plant-categories">
+                    <div class="category" v-for="category in plantCategories" :key="category.id">
+                        <img :src="category.image" :alt="category.name" class="category-image">
+                        <h3>{{ category.name }}</h3>
+                        <p>{{ category.description }}</p>
+                        <a href="#" class="view-btn">{{ category.name }} Guides</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="popular-guides">
+                <h3>Popular Guides</h3>
+                <div class="guides-grid">
+                    <div class="guide-card">
+                        <img src="https://picsum.photos/id/7/400/300" alt="Watering Guide" class="guide-image">
+                        <h4>How Often Should You Water Indoor Plants?</h4>
+                        <p>Learn the signs that indicate when your plants need water and how to avoid overwatering.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <img src="https://picsum.photos/id/8/400/300" alt="Succulent Guide" class="guide-image">
+                        <h4>Succulent Care 101</h4>
+                        <p>Everything you need to know about growing and maintaining healthy succulents.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                    
+                    <div class="guide-card">
+                        <img src="https://picsum.photos/id/9/400/300" alt="Flowering Plants" class="guide-image">
+                        <h4>Encouraging Blooms in Houseplants</h4>
+                        <p>Techniques to help your flowering plants produce more vibrant and long-lasting blooms.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="common-problems">
+                <h3>Common Plant Problems</h3>
+                <div class="problems-list">
+                    <div class="problem-item">
+                        <h4>Yellow Leaves</h4>
+                        <p>Causes and solutions for yellowing leaves on your plants.</p>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <h4>Pest Infestations</h4>
+                        <p>Identify and treat common plant pests naturally.</p>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <h4>Leggy Growth</h4>
+                        <p>How to prevent and fix stretched-out plant growth.</p>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <h4>Brown Tips</h4>
+                        <p>Reasons behind brown leaf tips and how to address them.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Plant Buddies. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    plantCategories: [
+                        {
+                            id: 1,
+                            name: "Indoor Plants",
+                            description: "Learn how to care for common indoor plants like pothos, snake plants, and monsteras.",
+                            image: "https://picsum.photos/id/152/400/300"
+                        },
+                        {
+                            id: 2,
+                            name: "Succulents & Cacti",
+                            description: "Explore the low-maintenance world of succulents and cacti with our easy-to-follow guides.",
+                            image: "https://picsum.photos/id/167/400/300"
+                        },
+                        {
+                            id: 3,
+                            name: "Flowering Plants",
+                            description: "Get tips for growing beautiful flowering plants to add life to your space.",
+                            image: "https://picsum.photos/id/152/400/300"
+                        },
+                        {
+                            id: 4,
+                            name: "Herbs & Vegetables",
+                            description: "Start your own kitchen garden with our beginner-friendly guides.",
+                            image: "https://picsum.photos/id/145/400/300"
+                        }
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

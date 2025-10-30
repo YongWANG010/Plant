@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Plant Buddies</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/svg+xml">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Plant Buddies</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="community.html" class="active">Community</a>
+                <a href="guide.html">Maintenance Guide</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="community-header">
+                <h2>Join Our Plant Community</h2>
+                <p>Connect with fellow plant lovers, share your experiences, and learn together.</p>
+                <a href="new-discussion.html" class="primary-btn">Start New Discussion</a>
+            </section>
+            
+            <section class="discussion-categories">
+                <h3>Discussion Categories</h3>
+                <div class="category-tabs">
+                    <a href="category.html?category=all" class="category-tab active">All Posts</a>
+                    <a href="category.html?category=plant-care" class="category-tab">Plant Care</a>
+                    <a href="category.html?category=growth-journals" class="category-tab">Growth Journals</a>
+                    <a href="category.html?category=q-a" class="category-tab">Q & A</a>
+                    <a href="category.html?category=tips-tricks" class="category-tab">Tips & Tricks</a>
+                </div>
+            </section>
+            
+            <section class="community-posts-list">
+                <div class="community-post" v-for="post in communityPosts" :key="post.id">
+                    <div class="post-header">
+                        <h3><a href="post-detail.html">{{ post.title }}</a></h3>
+                        <span class="post-date">Posted 2 days ago</span>
+                    </div>
+                    <p class="post-content">{{ post.content }}</p>
+                    <div class="post-footer">
+                        <span class="post-author">By: {{ post.author }}</span>
+                        <div class="post-actions">
+                            <button class="like-btn">👍 12</button>
+                            <button class="comment-btn">💬 5</button>
+                            <button class="share-btn">Share</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button class="page-btn">Previous</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">Next</button>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Plant Buddies. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    communityPosts: [
+                        {
+                            id: 1,
+                            title: "My Monstera's Growth Journey",
+                            content: "I've had my monstera for about 6 months now, and it's been quite a journey. Here are some tips I've learned along the way...",
+                            author: "PlantLover123"
+                        },
+                        {
+                            id: 2,
+                            title: "How do I fix yellow leaves on my pothos?",
+                            content: "My pothos is developing yellow leaves, and I'm not sure what's causing it. I water it once a week and keep it in indirect sunlight.",
+                            author: "NewPlantParent"
+                        },
+                        {
+                            id: 3,
+                            title: "Succulent Propagation Success!",
+                            content: "I finally mastered the art of succulent propagation. Here's my step-by-step process that gave me a 90% success rate.",
+                            author: "SucculentWhisperer"
+                        },
+                        {
+                            id: 4,
+                            title: "Building the perfect indoor plant shelf",
+                            content: "I built this custom plant shelf for my growing collection. It fits perfectly in my living room and provides great light exposure.",
+                            author: "DIYPlantParent"
+                        }
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Guide - Plant Buddies</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/svg+xml">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Plant Buddies</h1>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="community.html">Community</a>
+                <a href="guide.html">Maintenance Guide</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="explore-header">
+                <h2>Explore the Plant World</h2>
+                <p>Discover new plants to add to your collection and learn about their unique needs.</p>
+            </section>
+            
+            <section class="plant-finder">
+                <h3>Find Your Perfect Plant</h3>
+                <div class="finder-filters">
+                    <div class="filter-group">
+                        <label for="difficulty">Care Difficulty</label>
+                        <select id="difficulty">
+                            <option value="all">All Levels</option>
+                            <option value="beginner">Beginner Friendly</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="light">Light Requirements</label>
+                        <select id="light">
+                            <option value="all">All Light Levels</option>
+                            <option value="low">Low Light</option>
+                            <option value="medium">Medium Light</option>
+                            <option value="bright">Bright Light</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="water">Watering Needs</label>
+                        <select id="water">
+                            <option value="all">All Watering Needs</option>
+                            <option value="low">Low (Less Frequent)</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High (More Frequent)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="primary-btn filter-btn">Apply Filters</button>
+                </div>
+            </section>
+            
+            <section class="featured-plants">
+                <h3>Featured Plants</h3>
+                <div class="plants-grid">
+                    <div class="plant-card" v-for="plant in featuredPlants" :key="plant.id">
+                        <img :src="plant.image" :alt="plant.name" class="plant-image">
+                        <div class="plant-info">
+                            <h4>{{ plant.name }}</h4>
+                            <div class="plant-tags">
+                                <span class="tag difficulty">{{ plant.difficulty }}</span>
+                                <span class="tag light">{{ plant.light }}</span>
+                                <span class="tag water">{{ plant.water }}</span>
+                            </div>
+                            <p class="plant-description">{{ plant.description }}</p>
+                            <button class="view-btn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="plant-collections">
+                <h3>Plant Collections</h3>
+                <div class="collections-grid">
+                    <div class="collection-card">
+                        <img src="./images/indoor-plant.svg" alt="Office Plants" class="collection-image">
+                        <h4>Best Office Plants</h4>
+                        <p>Plants that thrive in office environments with limited light.</p>
+                    </div>
+                    
+                    <div class="collection-card">
+                        <img src="./images/herb.svg" alt="Kitchen Herbs" class="collection-image">
+                        <h4>Kitchen Herb Garden</h4>
+                        <p>Easy-to-grow herbs that you can use in your cooking.</p>
+                    </div>
+                    
+                    <div class="collection-card">
+                        <img src="./images/succulent.svg" alt="Desert Collection" class="collection-image">
+                        <h4>Desert Collection</h4>
+                        <p>Drought-tolerant plants that require minimal care.</p>
+                    </div>
+                    
+                    <div class="collection-card">
+                        <img src="./images/flower.svg" alt="Colorful Blooms" class="collection-image">
+                        <h4>Colorful Blooms</h4>
+                        <p>Plants that add vibrant colors to your indoor space.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 Plant Buddies. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    featuredPlants: [
+                        {
+                            id: 1,
+                            name: "Snake Plant",
+                            image: "./images/indoor-plant.svg",
+                            difficulty: "Beginner",
+                            light: "Low Light",
+                            water: "Low",
+                            description: "A resilient plant that's perfect for beginners, requiring minimal care."
+                        },
+                        {
+                            id: 2,
+                            name: "Echeveria",
+                            image: "./images/succulent.svg",
+                            difficulty: "Beginner",
+                            light: "Bright Light",
+                            water: "Low",
+                            description: "A popular succulent with beautiful rosette-shaped leaves."
+                        },
+                        {
+                            id: 3,
+                            name: "Pothos",
+                            image: "./images/indoor-plant.svg",
+                            difficulty: "Beginner",
+                            light: "Medium Light",
+                            water: "Medium",
+                            description: "A trailing plant that's very adaptable and easy to care for."
+                        },
+                        {
+                            id: 4,
+                            name: "Peace Lily",
+                            image: "./images/flower.svg",
+                            difficulty: "Intermediate",
+                            light: "Medium Light",
+                            water: "Medium",
+                            description: "Known for its beautiful white flowers and air-purifying qualities."
+                        }
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
