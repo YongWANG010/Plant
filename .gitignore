@@ -1,0 +1,52 @@
+# 忽略依赖目录
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 忽略 IDE 文件
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 忽略日志文件
+logs
+*.log
+
+# 忽略构建输出
+build/
+dist/
+
+# 忽略临时文件
+*.tmp
+*.temp
+.cache/
+
+# 忽略操作系统生成的文件
+Thumbs.db
+.DS_Store
+
+# 忽略编辑器目录和文件
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 忽略可能的测试覆盖率报告
+coverage/
+.nyc_output/
