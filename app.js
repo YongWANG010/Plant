@@ -32,21 +32,47 @@ createApp({
             communityPosts: [
                 {
                     id: 1,
-                    title: "How I Revived My Dying Pothos",
-                    content: "After noticing my pothos was looking sad with yellow leaves, I adjusted its watering schedule and moved it to a brighter spot. Within 2 weeks, it started thriving again!",
-                    author: "GreenThumbLover"
+                    title: "如何拯救我的绿萝",
+                    content: "当我发现我的绿萝叶片发黄看起来很萎靡时，我调整了浇水计划并将它移到更明亮的地方。两周内，它就重新焕发了生机！",
+                    author: "绿植爱好者"
                 },
                 {
                     id: 2,
-                    title: "My First Succulent Garden",
-                    content: "I just completed my first succulent arrangement in a vintage teacup. So excited to watch them grow! Any tips for keeping them happy?",
-                    author: "NewPlantParent"
+                    title: "我的第一个多肉花园",
+                    content: "我刚刚完成了在复古茶杯中的首个多肉植物组合。非常期待看到它们成长！有什么保持它们健康的小贴士吗？",
+                    author: "新手植物父母"
                 },
                 {
                     id: 3,
-                    title: "Monstera Propagation Success!",
-                    content: "I thought I'd share my success story with propagating my monstera. I now have 3 baby plants from the original mother plant!",
-                    author: "PlantPropagator"
+                    title: "龟背竹繁殖成功！",
+                    content: "我想分享一下我繁殖龟背竹的成功经历。现在我已经从原来的母株培育出了3株小植物！",
+                    author: "植物繁殖师"
+                }
+            ],
+            fictionStories: [
+                {
+                    id: 1,
+                    title: "绿萝的奇幻旅程",
+                    description: "一盆普通的绿萝发现自己拥有了意识，开始了一段探索人类世界的奇妙冒险...",
+                    image: "https://picsum.photos/id/106/800/450",
+                    chapters: 8,
+                    views: 1542
+                },
+                {
+                    id: 2,
+                    title: "多肉王国的秘密",
+                    description: "在一个被人类遗忘的花园里，多肉植物们建立了自己的王国，守护着一个古老的秘密...",
+                    image: "https://picsum.photos/id/119/800/450",
+                    chapters: 12,
+                    views: 2356
+                },
+                {
+                    id: 3,
+                    title: "会说话的龟背竹",
+                    description: "一个孤独的老人与一盆会说话的龟背竹成为了朋友，他们互相陪伴，度过了许多温馨的时光...",
+                    image: "https://picsum.photos/id/155/800/450",
+                    chapters: 6,
+                    views: 1879
                 }
             ]
         }
