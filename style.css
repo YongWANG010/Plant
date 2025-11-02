@@ -355,8 +355,9 @@ nav {
     display: flex;
     flex-direction: column;
     height: 100%;
-    border: 2px solid #e0f2f1;
+    border: 2px solid #2e7d32;
     position: relative;
+    padding: 0 !important;
 }
 
 #guide .category {
@@ -424,27 +425,33 @@ nav {
 }
 
 .view-btn {
-    background-color: #2e7d32;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: auto;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    text-align: center;
-    width: 100%;
-    font-size: 1rem;
-    box-shadow: 0 2px 5px rgba(46, 125, 50, 0.2);
+    background-color: #2e7d32 !important;
+    color: white !important;
+    border: 2px solid #2e7d32 !important;
+    padding: 14px 24px !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    display: block !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    width: 100% !important;
+    font-size: 1.05rem !important;
+    box-shadow: 0 3px 8px rgba(46, 125, 50, 0.3) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    z-index: 10 !important;
 }
 
 .view-btn:hover {
-    background-color: #1b5e20;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+    background-color: #1b5e20 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4) !important;
+    border-color: #1b5e20 !important;
 }
 
 .community-posts {

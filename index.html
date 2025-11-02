@@ -56,9 +56,11 @@
                 <div class="plant-categories">
                     <div class="category" v-for="category in plantCategories" :key="category.id">
                         <img :src="category.image" :alt="category.name" class="category-image">
-                        <h3>{{ category.name }}</h3>
-                        <p>{{ category.description }}</p>
-                        <a href="guide.html" class="view-btn">View Guide</a>
+                        <div class="category-content">
+                            <h3>{{ category.name }}</h3>
+                            <p>{{ category.description }}</p>
+                            <a href="guide.html" class="view-btn">View Guide</a>
+                        </div>
                     </div>
                 </div>
             </section>
