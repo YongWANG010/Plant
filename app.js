@@ -8,7 +8,7 @@ createApp({
                     id: 1,
                     name: "室内观叶植物",
                     description: "优雅的室内植物，净化空气并为家居增添自然气息",
-                    image: "https://picsum.photos/id/106/800/600"
+                    image: "https://picsum.photos/id/152/800/600"
                 },
                 {
                     id: 2,
@@ -26,7 +26,7 @@ createApp({
                     id: 4,
                     name: "药用与香草植物",
                     description: "实用的药用和香草植物，可用于烹饪和自然疗法",
-                    image: "https://picsum.photos/id/155/800/600"
+                    image: "https://picsum.photos/id/431/800/600"
                 }
             ],
             communityPosts: [
