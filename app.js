@@ -8,25 +8,25 @@ createApp({
                     id: 1,
                     name: "室内观叶植物",
                     description: "优雅的室内植物，净化空气并为家居增添自然气息",
-                    image: "https://picsum.photos/id/152/800/600"
+                    image: "./images/1.jpg"
                 },
                 {
                     id: 2,
                     name: "多肉植物收藏",
                     description: "形态各异的多肉植物，适合忙碌生活的理想选择",
-                    image: "https://picsum.photos/id/119/800/600"
+                    image: "./images/2.jpg"
                 },
                 {
                     id: 3,
                     name: "观花植物指南",
                     description: "色彩缤纷的开花植物，为您的空间带来生机与活力",
-                    image: "https://picsum.photos/id/142/800/600"
+                    image: "./images/3.jpg"
                 },
                 {
                     id: 4,
                     name: "药用与香草植物",
                     description: "实用的药用和香草植物，可用于烹饪和自然疗法",
-                    image: "https://picsum.photos/id/431/800/600"
+                    image: "./images/4.jpg"
                 }
             ],
             communityPosts: [
