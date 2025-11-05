@@ -793,8 +793,16 @@ footer {
 /* New Pages Specific Styles */
 
 /* Navigation Active State */
-nav a.active, .register-btn.active {
+nav a.active {
     color: #2e7d32;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Register button active state - keep text white */
+.register-btn.active {
+    background-color: #1b5e20;
+    color: white;
     font-weight: bold;
     position: relative;
 }

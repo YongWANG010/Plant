@@ -5,19 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maintenance Guide - Plant Buddies</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/svg+xml">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <header>
-            <h1>Plant Buddies</h1>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="community.html">Community</a>
-                <a href="guide.html" class="active">Maintenance Guide</a>
-                <a href="register.html" class="register-btn">Register</a>
-            </nav>
+            <div class="container header-container">
+                <a href="index.html" class="logo">Plant Buddies</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="guide.html" class="active">Care Guides</a></li>
+                    </ul>
+                    <a href="register.html" class="register-btn">Register</a>
+                </nav>
+            </div>
         </header>
         
         <main>
@@ -130,6 +137,18 @@
                 }
             }
         }).mount('#app')
+    </script>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 </html>
